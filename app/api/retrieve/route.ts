@@ -45,11 +45,11 @@ export async function POST(request: Request) {
   }
 
   const supabaseAdmin = getSupabaseAdmin();
-  const { data, error } = await supabaseAdmin.rpc("match_chunks", {
+  const { data, error } = await (supabaseAdmin as any).rpc("match_chunks", {
     query_embedding: queryEmbedding,
     match_count: TOP_K,
     filter_document_id: documentId
-  } as unknown as Record<string, unknown>);
+  });
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
