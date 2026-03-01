@@ -49,7 +49,7 @@ export async function POST(request: Request) {
     query_embedding: queryEmbedding,
     match_count: TOP_K,
     filter_document_id: documentId
-  });
+  } as unknown as Record<string, unknown>);
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
