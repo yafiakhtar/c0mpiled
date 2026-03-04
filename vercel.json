@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "app/api/queues/process-paper/route.ts": {
+      "maxDuration": 300,
+      "experimentalTriggers": [
+        {
+          "type": "queue/v2beta",
+          "topic": "process-paper"
+        }
+      ]
+    },
+    "app/api/chat/route.ts": {
+      "maxDuration": 60
+    }
+  }
+}
